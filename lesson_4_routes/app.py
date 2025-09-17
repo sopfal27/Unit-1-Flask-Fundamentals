@@ -47,6 +47,17 @@ def calculator(num1, operation, num2):
     else: 
         return f"Unknown operation!{operation}"
 
+@app.route("/temp/<unit>/<int:num>")
+def conversion(unit, num):
+    if unit == "F" or unit == "f":
+        result = ((num - 32) * 5/9)
+        return f"{num} degrees Fahrenheit = {result} degrees Celsius"
+    
+    elif unit == "C" or unit == 'c':
+        result = (num*5/9) + 32
+        return f"{num} degrees Celsisus = {result} degrees Fahrenheit"
+    else:
+        return "error, enter F or C"
     
 
 if __name__ == '__main__':
